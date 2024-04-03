@@ -43,6 +43,28 @@ class TaskController extends Controller
         return response()->json(['success' => true, 'task' => $task]);
     }
 
+    public function edit($id)
+    {
+        $task = Task::findOrFail($id);
+        return view('tasks.edit', compact('task'));
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $task = Task::findOrFail($id);
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'category' => 'nullable|string|max:255',
+            'due_date' => 'nullable|date',
+        ]);
+    
+        $task->update($validatedData);
+    
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully');
+    }
+    
+
     public function destroy($id)
     {
         // Encontrar la tarea por su ID

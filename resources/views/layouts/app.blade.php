@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark-mode">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,37 +16,11 @@
 
     <style>
         /* Tema oscuro */
-        .dark-mode {
+        /* .dark-mode {
             background-color: #121212;
             color: #ffffff;
-        }
+        } */
 
-        .dark-mode span{
-            background-color: #121212;
-            color: #ffffff;
-        }
-
-        .dark-mode .card {
-            background-color: #212121;
-            color: #ffffff;
-        }
-
-        .dark-mode .form-control {
-            background-color: #333333;
-            color: #ffffff;
-        }
-
-        .dark-mode .navbar {
-            background-color: #333333;
-            color: #ffffff;
-        }
-
-        .task-container{
-            margin: 1em;
-            position: absolute;
-            top: 5em;
-            height: calc(100vh - 4em)
-        }
 
         .navbar .container{
             display: flex;
@@ -61,23 +35,24 @@
             }
             
         }
+        
 
     </style>
 </head>
 <body class="dark-mode">
     <!-- Barra de navegación -->
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand text-light" href="{{ url('/') }}">Proyecto Final Testing - Camila Arias</a>
+            <a class="navbar-brand" href="{{ url('/') }}">Proyecto Final Testing - Camila Arias</a>
             <!-- Agrega aquí tus elementos de navegación -->
             <div class="d-flex gap-2">
                 <form action="{{ route('tasks.search') }}" method="GET">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="search">
-                        <button class="btn btn-outline-secondary" type="submit">Search</button>
+                        <input type="text" class="form-control bg-dark text-light" placeholder="Search" name="search">
+                        <button class="btn btn-outline-light" type="submit"><i class="me-1 bi bi-search"></i>Search</button>
                     </div>
                 </form>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add Task</button>
+                <button class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#addTaskModal"><i class="me-1 bi bi-file-earmark-plus"></i>Add Task</button>
             </div>
             
         </div>
