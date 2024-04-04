@@ -2,9 +2,11 @@
 Crud de tareas creada en laravel, con 10 testeos
 
 
+### Prerrequisitos
+    Tener php agregado a las variables de entorno
+    Tener instalado composer
+
 ### Pasos para ejecutar test y servidor
-
-
 1. **Descargar las dependencias:**
    ```bash
     composer update --no-scripts
