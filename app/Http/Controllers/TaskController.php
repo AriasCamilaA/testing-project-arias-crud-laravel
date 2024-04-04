@@ -53,7 +53,7 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255|unique:tasks,title,'.$id, // Asegura que el título sea único, excluyendo la tarea actual
             'description' => 'nullable|string',
             'category' => 'nullable|string|max:255',
             'due_date' => 'nullable|date',
